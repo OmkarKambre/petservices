@@ -64,7 +64,7 @@ export default function ServicesPage() {
               <CardDescription className="text-white">{service.description}</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-2xl font-bold text-purple-400 mb-4">{service.price}</p>
+              <p className="text-2xl font-bold text-white mb-4">{service.price}</p>
               <ul className="space-y-2 text-sm text-white">
                 {service.features.map((feature, i) => (
                   <li key={i} className="flex items-center">
