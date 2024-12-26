@@ -1,101 +1,106 @@
-import Image from "next/image";
+"use client";
+
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent} from "@/components/ui/card"
+import { PawPrint, Heart, Clock, Shield } from 'lucide-react'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const notify = () => toast("Wow so easy!");
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  return (
+    <main className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative h-[600px] flex items-center justify-center bg-gradient-to-r from-purple-900 to-black">
+        <div className="container px-4 mx-auto text-center">
+          <h1 className="text-5xl font-bold mb-6">PawPerfect Pet Services</h1>
+          <p className="text-xl mb-8 text-purple-200">Professional care for your beloved pets</p>
+          <Link href="/book">
+            <Button className="bg-purple-600 hover:bg-purple-700 transition-colors" onClick={notify}>Book Now</Button>
+          </Link>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+      </section>
+
+      {/* Services Section */}
+      <section className="py-20 bg-black">
+        <div className="container px-4 mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">Our Services</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { icon: PawPrint, title: "Dog Walking", description: "Daily walks and exercise" },
+              { icon: Heart, title: "Pet Sitting", description: "In-home pet care" },
+              { icon: Clock, title: "Day Care", description: "Full day pet supervision" },
+              { icon: Shield, title: "Training", description: "Professional pet training" },
+            ].map((service, index) => (
+              <Card key={index} className="bg-purple-900/20 border-purple-800 transition-transform hover:scale-105">
+                <CardContent className="p-6 text-center">
+                  <service.icon className="w-12 h-12 mx-auto mb-4 text-purple-400" />
+                  <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+                  <p className="text-purple-200">{service.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          <div className="text-center mt-12">
+            <Link href="/services">
+              <Button variant="outline" className="border-purple-600 text-purple-400 hover:bg-purple-600 hover:text-white transition-colors">
+                View All Services
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-20 bg-purple-900/20">
+        <div className="container px-4 mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">Happy Pet Parents</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                name: "Sarah M.",
+                text: "Amazing service! My dog loves their walks.",
+                rating: 5,
+              },
+              {
+                name: "John D.",
+                text: "Professional and caring pet sitters. Highly recommend!",
+                rating: 5,
+              },
+              {
+                name: "Emma L.",
+                text: "Great training sessions. Saw improvement in just weeks!",
+                rating: 5,
+              },
+            ].map((testimonial, index) => (
+              <Card key={index} className="bg-purple-900/20 border-purple-800">
+                <CardContent className="p-6">
+                  <p className="mb-4">{testimonial.text}</p>
+                  <p className="font-semibold text-purple-400">{testimonial.name}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-black">
+        <div className="container px-4 mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-6">Ready to give your pet the best care?</h2>
+          <p className="text-xl mb-8 text-purple-200">Book a service today and see the PawPerfect difference!</p>
+          <Link href="/book">
+            <Button className="bg-purple-600 hover:bg-purple-700 transition-colors text-lg px-8 py-3" onClick={notify}>
+              Book Now
+            </Button>
+          </Link>
+        </div>
+      </section>
+
+      <ToastContainer />
+    </main>
+  )
 }
+
