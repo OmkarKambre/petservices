@@ -6,19 +6,19 @@ import Link from "next/link"
 export default function TechnicalOverviewPage() {
   return (
     <div className="container py-12">
-      <h1 className="text-4xl font-bold mb-8 text-center">PawPerfect: Technical Overview</h1>
+      <h1 className="text-4xl font-bold mb-8 text-center text-white">PawPerfect: Technical Overview</h1>
       
       {/* GitHub Repository Link */}
       <Card className="bg-purple-900/20 border-purple-800 mb-8">
         <CardContent className="flex items-center justify-between p-6">
           <div className="space-y-2">
-            <h2 className="text-xl font-semibold">View Source Code</h2>
+            <h2 className="text-xl font-semibold text-white">View Source Code</h2>
             <p className="text-purple-200">
               Explore the complete source code and implementation details on GitHub
             </p>
           </div>
           <Link 
-            href="https://github.com/OmkarKambre/petservice" 
+            href="https://github.com/OmkarKambre/petservices" 
             target="_blank" 
             rel="noopener noreferrer"
           >
@@ -32,10 +32,10 @@ export default function TechnicalOverviewPage() {
       
       <Card className="bg-purple-900/20 border-purple-800 mb-8">
         <CardHeader>
-          <CardTitle className="text-2xl">Project Architecture</CardTitle>
+          <CardTitle className="text-2xl text-white">Project Architecture</CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="mb-4">
+          <p className="mb-4 text-white">
             The PawPerfect project is built using Next.js 15.1 and React 19, leveraging the latest features and best practices in web development. Here&apos;s an overview of the key technical aspects:
           </p>
           <ul className="list-disc pl-6 space-y-2 text-purple-200">
@@ -49,10 +49,10 @@ export default function TechnicalOverviewPage() {
 
       <Card className="bg-purple-900/20 border-purple-800 mb-8">
         <CardHeader>
-          <CardTitle className="text-2xl">Server Actions</CardTitle>
+          <CardTitle className="text-2xl text-white">Server Actions</CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="mb-4">
+          <p className="mb-4 text-white">
             We&apos;ve implemented Server Actions, a powerful feature introduced in Next.js 13 and enhanced in later versions. Here are some examples of how we&apos;ve implemented Server Actions:
           </p>
           <ul className="list-disc pl-6 space-y-2 text-purple-200">
@@ -60,7 +60,7 @@ export default function TechnicalOverviewPage() {
             <li>Newsletter subscription in the site footer</li>
             <li>Contact form submission on the Contact page</li>
           </ul>
-          <p className="mt-4">
+          <p className="mt-4 text-white">
             Server Actions allow us to handle form submissions and data mutations server-side, improving security and reducing client-side JavaScript.
           </p>
         </CardContent>
@@ -68,10 +68,10 @@ export default function TechnicalOverviewPage() {
 
       <Card className="bg-purple-900/20 border-purple-800 mb-8">
         <CardHeader>
-          <CardTitle className="text-2xl">Next.js 15.1 and React 19 Features</CardTitle>
+          <CardTitle className="text-2xl text-white">Next.js 15.1 and React 19 Features</CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="mb-4">
+          <p className="mb-4 text-white">
             While our project doesn&apos;t explicitly use all new features, we&apos;re set up to take advantage of:
           </p>
           <ul className="list-disc pl-6 space-y-2 text-purple-200">
@@ -86,7 +86,7 @@ export default function TechnicalOverviewPage() {
 
       <Card className="bg-purple-900/20 border-purple-800">
         <CardHeader>
-          <CardTitle className="text-2xl">Key Learnings</CardTitle>
+          <CardTitle className="text-2xl text-white">Key Learnings</CardTitle>
         </CardHeader>
         <CardContent>
           <ul className="list-disc pl-6 space-y-2 text-purple-200">
